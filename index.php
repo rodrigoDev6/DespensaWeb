@@ -16,10 +16,12 @@ $camisaNova = new \DespensaWeb\Model\Despesa(
     new DateTimeImmutable()
 );
 
+var_dump($despesa->allDespesas()[0]);
 
-$despesa->insert($camisaNova);
+//$despesa->insert($camisaNova);
 
-exit();
+    exit();
+
 $despesas = [];
 
 $camisaNova = new \DespensaWeb\Model\Despesa(

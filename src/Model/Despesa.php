@@ -7,9 +7,9 @@ class Despesa
     private ?int $id;
     private string $descricao;
     private float $valor;
-    private \DateTimeImmutable $dataDaDespesa;
+    private \DateTimeInterface $dataDaDespesa;
 
-    public function __construct(?int $id, string $descricao, float $valor, \DateTimeImmutable $dataDaDespesa)
+    public function     __construct(?int $id, string $descricao, float $valor, \DateTimeInterface $dataDaDespesa)
     {
         $this->id = $id;
         $this->descricao = $descricao;

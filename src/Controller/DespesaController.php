@@ -16,10 +16,30 @@ class DespesaController implements DespesaInterface
     }
 
 
-    public function allDespesas(Despesa $despesa): array
+    public function allDespesas(): array
     {
         $sqlSelect = "SELECT * FROM despesas;";
-        return $a;
+        $despesas = $this->connection->query($sqlSelect);
+
+        return $this->listaDeDespesaHistratada($despesas);
+    }
+
+    public function listaDeDespesaHistratada(\PDOStatement $dlc): array
+    {
+        $despesasLista = [];
+        $despesasDados = $dlc->fetchAll();
+
+        foreach ($despesasDados as $despesaDado) {
+            $despesasLista[] = new Despesa(
+                $despesaDado['id'],
+                $despesaDado['descricao'],
+                $despesaDado['valor'],
+                new \DateTimeImmutable($despesaDado['data_da_despesa'])
+            );
+
+        }
+
+        return $despesasLista;
     }
 
     public function insert(Despesa $despesa): bool
