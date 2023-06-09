@@ -1,0 +1,15 @@
+{
+    "name": "rodrigodev/despensa-web",
+    "description": "Projeto para registrar o meu fluxo pessoal de gastos",
+    "autoload": {
+        "psr-4": {
+            "DespensaWeb\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rodrigo de Lima"
+        }
+    ],
+    "require": {}
+}
