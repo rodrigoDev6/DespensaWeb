@@ -36,7 +36,6 @@ class DespesaController implements DespesaInterface
                 $despesaDado['valor'],
                 new \DateTimeImmutable($despesaDado['data_da_despesa'])
             );
-
         }
 
         return $despesasLista;
@@ -60,6 +59,12 @@ class DespesaController implements DespesaInterface
 
     public function delete(Despesa $despesa): bool
     {
-        return true;
+        $dlc = $this->connection->prepare("DELETE FROM despesas WHERE id = ?;");
+        $dlc->bindValue(1, $despesa->getId(), PDO::PARAM_INT);
+
+        if ($dlc->execute() == true) {
+            echo "Removido com sucesso";
+        }
+        return $dlc->execute();
     }
 }

@@ -7,10 +7,10 @@ class ConexaoBanco
 {
     public static function criadorConexao(): PDO
     {
-        $host = "localhost";
-        $database = "app_despesa";
-        $username = "rodrigo";
-        $password = "309472";
+        $host = "127.0.0.1";
+        $database = "despensa_web";
+        $username = "root";
+        $password = "password";
 
         $connection = new PDO(
             "mysql:host={$host}; dbname={$database}",
